@@ -14,7 +14,4 @@ class PagesController extends Controller
         return view('pages/dashboard');
     }
 
-    public function main(){
-        return view('pages/main');
-    }
 }
