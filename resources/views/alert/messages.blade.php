@@ -1,7 +1,20 @@
-@if ($errors->any())
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-danger alert-dismissible">
-           <strong>Error!</strong> {{$error}}
-        </div>
-    @endforeach
-@endif
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<div class="mg-auto justify-content-center">
+        @if ($errors->any())
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="alert-heading">Oops! Something went wrong!</h4>
+                <p>
+                    @foreach ($errors->all() as $error)
+                        - {{ $error }}<br>
+                    @endforeach
+                </p>
+            </div>
+        @endif
+</div>
