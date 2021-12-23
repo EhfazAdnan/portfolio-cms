@@ -9,8 +9,10 @@
                     <li class="breadcrumb-item active">Main</li>
                 </ol>
 
+            <form action="{{route('admin.main.update')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                {{ method_field('PUT') }}
                 <div class="row">
-
                     <div class="col-md-3 mt-3">
                         <h3>Background Image</h3>
                         <img style="height: 30vh" src="{{url($main->bc_img)}}" alt="background-image" class="img-thumbnail">
@@ -46,7 +48,9 @@
                             ></iframe>
                         </div>
                     </div>
-                </div>     
+                </div>
+                <input type="submit" class="btn btn-primary mt-5" />  
+            </form>
 
         </div>
     </main>
