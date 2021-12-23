@@ -82,7 +82,7 @@
             </div>
             <div id="layoutSidenav_content">
 
-            @include('alert.messags')
+            @include('alert.messages')
             @yield('content')
                 
             <footer class="py-4 bg-light mt-auto">
