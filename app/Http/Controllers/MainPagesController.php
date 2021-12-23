@@ -70,6 +70,11 @@ class MainPagesController extends Controller
      */
     public function update(Request $request)
     {
+        $this->validate($request, [
+          'title' => 'required|string',
+          'sub_title' => 'required|string',
+        ]);
+
         return 'abc';
     }
 
