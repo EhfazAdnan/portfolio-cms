@@ -60,7 +60,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{route('admin.services.create')}}">Create</a>
-                                    <a class="nav-link" href="#">List</a>
+                                    <a class="nav-link" href="{{route('admin.services.list')}}">List</a>
                                 </nav>
                             </div>
 
