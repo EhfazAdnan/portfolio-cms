@@ -24,6 +24,9 @@ Route::get('/admin/services/create', 'ServicePagesController@create')->name('adm
 Route::post('/admin/services/create', 'ServicePagesController@store')->name('admin.services.store');
 
 Route::get('/admin/services/list', 'ServicePagesController@list')->name('admin.services.list');
+Route::get('/admin/services/edit/{id}', 'ServicePagesController@edit')->name('admin.services.edit');
+Route::post('/admin/services/update/{id}', 'ServicePagesController@update')->name('admin.services.update');
+Route::delete('/admin/services/destroy/{id}', 'ServicePagesController@destroy')->name('admin.services.destroy');
 
 Auth::routes();
 
