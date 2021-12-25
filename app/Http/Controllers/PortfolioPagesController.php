@@ -101,19 +101,34 @@ class PortfolioPagesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'icon' => 'required|string',
             'title' => 'required|string',
+            'sub_title' => 'required|string',
             'description' => 'required|string',
+            'client' => 'required|string',
+            'category' => 'required|string',
          ]);
  
          $portfolios = Portfolio::find($id);
-         $portfolios->icon = $request->icon;
          $portfolios->title = $request->title;
+         $portfolios->sub_title = $request->sub_title;
          $portfolios->description = $request->description;
+         $portfolios->client = $request->client;
+         $portfolios->category = $request->category;
+ 
+         if($request->file('big_image')){
+            $big_file = $request->file('big_image');
+            Storage::putFile('public/img/', $big_file);
+            $portfolios->big_image = "storage/img/".$big_file->hashName();
+         }
+         
+         if($request->file('small_image')){
+            $small_file = $request->file('small_image');
+            Storage::putFile('public/img/', $small_file);
+            $portfolios->small_image = "storage/img/".$small_file->hashName();
+         }
  
          $portfolios->save();
- 
-         return redirect()->route('admin.portfolios.list')->with('success','Portfolio has been updated');
+         return redirect()->route('admin.portfolios.list')->with('success','Portfolio updated successfully');
     }
 
     /**
@@ -125,6 +140,8 @@ class PortfolioPagesController extends Controller
     public function destroy($id)
     {
         $portfolio = Portfolio::find($id);
+        @unlink(public_path($portfolio->big_image));
+        @unlink(public_path($portfolio->small_image));
         $portfolio->delete();
 
         return redirect()->route('admin.portfolios.list')->with('success', 'Portfolio Delete Successfully');

@@ -34,7 +34,7 @@ Route::prefix('admin')->group(function(){
     Route::put('/portfolios/create', 'PortfolioPagesController@store')->name('admin.portfolios.store');
     Route::get('/portfolios/list', 'PortfolioPagesController@list')->name('admin.portfolios.list');
     Route::get('/portfolios/edit/{id}', 'PortfolioPagesController@edit')->name('admin.portfolios.edit');
-    Route::post('/portfolios/update/{id}', 'PortfolioPagesController@update')->name('admin.portfolios.update');
+    Route::put('/portfolios/update/{id}', 'PortfolioPagesController@update')->name('admin.portfolios.update');
     Route::delete('/portfolios/destroy/{id}', 'PortfolioPagesController@destroy')->name('admin.portfolios.destroy');
 });
 
